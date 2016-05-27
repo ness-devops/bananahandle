@@ -33,7 +33,9 @@ node["lamp-stack"]["sites"].each do |sitename, data|
   end
 
   template "/etc/apache2/sites-available/#{sitename}.conf" do
-    notifies :run, "execute[enable-sites]" 
+    notifies :run, "execute[enable-sites]"
+  end
+ 
   directory "/var/www/html/#{sitename}/public_html" do
     action :create
   end
