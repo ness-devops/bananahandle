@@ -7,6 +7,10 @@ mysql_service 'ness' do
   action [:create, :start]
 end
 
+mysql2_chef_gem 'default' do
+  action :install
+end
+
 # This is used repeatedly, so we'll store it in a variable
 mysql_connection_info = {
   host:     'localhost',
